@@ -5,3 +5,7 @@ A set of utilities useful when working in Python and Django.
 RUN TESTS
 =======
 $ py.test
+
+REQUIREMENTS
+=======
+Requires at least 2.0.2 of django-model-utils

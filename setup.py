@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '0.0.6.0'
+version = '0.0.6.1'
 install_requires = ['pytest', 'django-model-utils >= 2.0.2', 'requests', ]
 dependency_links = []
 

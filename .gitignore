@@ -2,3 +2,11 @@ venv
 .venv
 *.pyc
 .DS_Store
+.idea/
+MANIFEST
+*.egg-info
+./dist/
+local_settings.py
+*.egg
+*.tar.gz
+build

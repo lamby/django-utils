@@ -2,14 +2,14 @@ from setuptools import setup, find_packages
 
 version = '0.0.6.2'
 install_requires = ['pytest', 'django-model-utils >= 2.0.2', 'requests', ]
-dependency_links = []
+dependency_links = ["http://localshop.foolhq.com/simple"]
 
-setup(name='django-utils',
+setup(name='tmf-django-utils',
       version=version,
       description='Django utilities',
       author="The Motley Fool",
       author_email="github@fool.com",
-      url="http://www.fool.com/",
+      url="https://github.com/themotleyfool/django-utils",
       packages=find_packages(),
       include_package_data=True,
       install_requires=install_requires,

@@ -31,28 +31,16 @@ def super_redirect(request, url_name):
     return redirect(fully_qualified_url_name)
 
 
+def convert_ip_to_number(ip):
+    str_ip = ''.join([a.zfill(3) for a in ip.split('.')])
+    return int(str_ip)
+
+
 def is_ip_in_range(ip, start, end):
-    test_ip_list = [int(i) for i in ip.split('.')]
-    start_ip_list = [int(i) for i in start.split('.')]
-    end_ip_list = [int(i) for i in end.split('.')]
-    if not len(test_ip_list) == len(start_ip_list) == len(end_ip_list) == IP_LENGTH:
-        raise Exception("Incorrect IP address format")
-    for i in range(0, IP_LENGTH):
-        if start_ip_list[i] <= test_ip_list[i] <= end_ip_list[i]:
-            if start_ip_list[i] != end_ip_list[i]:
-                if start_ip_list[i] == test_ip_list[i]:
-                    for j in range(i+1, IP_LENGTH):
-                        end_ip_list[j] = MAX_IP_VAL
-                    continue
-                elif end_ip_list[i] == test_ip_list[i]:
-                    for j in range(i+1, IP_LENGTH):
-                        start_ip_list[j] = 0
-                    continue
-            if start_ip_list[i] != test_ip_list[i] and end_ip_list[i] != test_ip_list[i]:
-                return True
-        else:
-            return False
-    return True
+    ip_num = convert_ip_to_number(ip)
+    start_num = convert_ip_to_number(start)
+    end_num = convert_ip_to_number(end)
+    return start_num <= ip_num <= end_num
 
 
 def is_ip_in_list(ip, ip_list):

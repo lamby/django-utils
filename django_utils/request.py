@@ -70,3 +70,11 @@ def is_internal(request):
         '127.0.0.1'     # localhost
     ]
     return is_ip_in_list(ip, internal_ips)
+
+
+def is_uk(request):
+    try:
+        host = request.META['HTTP_HOST']
+        return '.co.uk' in host
+    except:
+        return False

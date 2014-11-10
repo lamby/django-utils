@@ -19,6 +19,7 @@ def super_redirect(request, url_name):
     A terrible name for just being able to redirect without hard-coding the
     current namespace.
     '''
+
     resolver = resolve(request.path)
     fully_qualified_url_name = url_name
 
@@ -78,3 +79,13 @@ def is_uk(request):
         return '.co.uk' in host
     except:
         return False
+
+
+def localize_uri(url, request):
+    try:
+        host = request.META['HTTP_HOST']
+        domains = host.split('.')
+        new_url = domains[-4] + '.' + url
+        return new_url
+    except:
+        return url

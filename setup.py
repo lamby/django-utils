@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '1.0.0.0'
+version = '1.0.0.1.dev0'
 install_requires = ['pytest', 'django-model-utils >= 2.0.2', 'requests', ]
 dependency_links = ["http://localshop.foolhq.com/simple"]
 

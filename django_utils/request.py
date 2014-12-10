@@ -14,7 +14,7 @@ def get_client_ip(request):
     return ip
 
 
-def super_redirect(request, url_name):
+def super_redirect(request, url_name, *args, **kwargs):
     '''
     A terrible name for just being able to redirect without hard-coding the
     current namespace.
@@ -29,7 +29,7 @@ def super_redirect(request, url_name):
     if resolver.namespace:
         fully_qualified_url_name = '%s:%s' % (resolver.namespace, fully_qualified_url_name)
 
-    return redirect(fully_qualified_url_name)
+    return redirect(fully_qualified_url_name, *args, **kwargs)
 
 
 def convert_ip_to_number(ip):
